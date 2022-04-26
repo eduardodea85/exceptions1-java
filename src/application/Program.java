@@ -20,7 +20,7 @@ public class Program {
         System.out.print("Check-out date (dd/MM/yyyy): ");
         Date checkOut = sdf.parse(sc.next());
         
-        if (!checkOut.after(checkIn)) { //Tratamento de erro para data de saida antes da entrada. Validação
+        if (!checkOut.after(checkIn)) { //Tratamento de erro para data de saida antes da entrada. Lógica de Validação (Essa lógica é ruim, pois deveria estar na classe de reserva não no programa principal).
             System.out.println("Error in reservation: Check-out date must be after check-in date");
         }else {
             Reservation reservation = new Reservation(number, checkIn, checkOut);

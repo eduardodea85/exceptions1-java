@@ -16,7 +16,7 @@ public class Reservation {
     public Reservation() {
     }
 
-    public Reservation(Integer roomNumber, Date checkIn, Date checkOut) throws DomainException{
+    public Reservation(Integer roomNumber, Date checkIn, Date checkOut) {
         if (!checkOut.after(checkIn)) { //Programação defensiva colocando o método no de tratamento personalizado no construtor.
                 throw new DomainException("Error in reservation: Check-out date must be after check-in date");
             }
@@ -46,7 +46,7 @@ public class Reservation {
         return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
     }
     
-    public void updateDates(Date checkIn, Date checkOut) throws DomainException { //Lógica de validação para datas futuras
+    public void updateDates(Date checkIn, Date checkOut) { //Lógica de validação para datas futuras
         Date now = new Date();
             if (checkIn.before(now) || checkOut.before(now)) {
                 throw new DomainException("Error in reservation: Reservation dates for updates must be future dates");
